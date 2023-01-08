@@ -37,7 +37,6 @@ const ArtistForm = ({ show, handleClose, artistSelected }) => {
     return (
 
         <ModalForm show={show} handleClose={handleClose} save={saveArtist} title="Artist form">
-            <img src={artist.image} className="form-artist-img" alt="" />
             <Row className="mb-3">
                 <Col>
                     <Form.Control
@@ -63,13 +62,20 @@ const ArtistForm = ({ show, handleClose, artistSelected }) => {
                 onChange={e => editArtist("country", e.target.value)}
                 className="mb-3"
             />
-            <Form.Control
-                type="text"
-                placeholder='image URL'
-                value={artist.image}
-                onChange={e => editArtist("image", e.target.value)}
-                className="mb-3"
-            />
+            <Row>
+                <Col xs={9}>
+                    <Form.Control
+                        type="text"
+                        placeholder='image URL'
+                        value={artist.image}
+                        onChange={e => editArtist("image", e.target.value)}
+                        className="mb-3"
+                    />
+                </Col>
+                <Col>
+                    <img src={artist.image} className="form-artist-img" alt="" />
+                </Col>
+            </Row>
             <ItemsSelect 
                 items={genres}
                 setItemsSelected={e => editArtist("genres", e)}

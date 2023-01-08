@@ -1,12 +1,15 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteAlbumThunk } from '../../store/slices/albums.slice';
 
 const AlbumCard = ({ album, selectAlbum }) => {
 
     const artists = useSelector(state => state.artists);
 
     const artist = artists.find(artist => artist.id === album.artistId);
+
+    const dispatch = useDispatch();
 
     return (
         <Col>

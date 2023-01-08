@@ -7,7 +7,9 @@ export const albumsSlice = createSlice({
     initialState: [],
     reducers: {
         setAlbums: (_, action) => action.payload,
-        addAlbum: (state, action) => state.push(action.payload),
+        addAlbum: (state, action) => { state.push(action.payload) },
+        deleteAlbum: (state, {payload}) => 
+            state.filter(album => album.id !== payload),
         updateAlbum: (state, action) => {
             const { id, album } = action.payload;
             const index = state.findIndex(album => album.id === id);
@@ -37,6 +39,13 @@ export const updateAlbumThunk = (album, id) => dispatch => {
     }, "Album updated succesfully"))
 }
 
-export const { setAlbums, addAlbum, updateAlbum } = albumsSlice.actions;
+export const deleteAlbumThunk = id => dispatch => {
+    dispatch(genericRequestThunk(async() => {
+        await axios.delete(`/albums/${id}`);
+        dispatch(deleteAlbum(id));
+    }, "Album deleted succesfully"));
+}
+
+export const { setAlbums, addAlbum, updateAlbum, deleteAlbum } = albumsSlice.actions;
 
 export default albumsSlice.reducer;
