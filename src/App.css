@@ -1,0 +1,83 @@
+.notification-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 130px;
+    z-index: 99999;
+}
+
+.song-column{
+    display: flex;
+    align-items: center;
+}
+
+.song-column img{
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.items-select{
+    overflow-x: auto;
+}
+
+.items-select .form-card{
+    cursor: pointer;
+    width: 165px;
+}
+
+.items-select .form-card.selected{
+    border: 3px solid #2a9fd6;
+}
+
+.items-select .form-card img{
+    height: 100px;
+    object-fit: contain;
+}
+
+.form-artist-img{
+    width: 100%;
+    margin: 0 auto 20px;
+    display: block;
+}
+
+.card-img{
+    height: 150px;
+    object-fit: cover;
+}
+
+.filter-option{ cursor: pointer; }
+.filter-option:hover{ text-decoration: underline; }
+
+.genres-list{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+}
+
+.genres-list .genres-item{
+    display: flex;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 0;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.genres-list .genres-item .genre-name{
+    padding: 4px 15px;
+    cursor: pointer;
+}
+
+.genres-list .genres-item input{
+    width: 75px;
+    outline: none;
+    border: none;
+    padding: 4px 15px;
+}
+
+.genres-list .genres-item button{
+    border: none;
+}
