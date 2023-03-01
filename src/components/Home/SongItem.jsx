@@ -14,8 +14,8 @@ const SongItem = ({ song, selectSong }) => {
     const update = () => {
         selectSong({
             ...song,
-            genres: song.genres.map(genre => genre.id),
-            artists: song.artists.map(artist => artist.id)
+            genres: song.genres?.map(genre => genre.id) || [],
+            artists: song.artists?.map(artist => artist.id) || []
         })
     }
 
@@ -28,15 +28,15 @@ const SongItem = ({ song, selectSong }) => {
                         {song.name}
                         <br />
                         <div className="text-muted">
-                            {song.artists[0]?.name}
+                            {song.artists?.[0]?.name}
                         </div>
                     </div>
                 </td>
                 <td>{album?.name}</td>
                 <td>{album?.releaseYear}</td>
                 <td>
-                    {song.genres[0]?.name}
-                    {song.genres[1] && ', ' + song.genres[1].name}
+                    {song.genres?.[0]?.name}
+                    {song.genres?.[1] && ', ' + song.genres[1].name}
                 </td>
                 <td>
                     <Button 

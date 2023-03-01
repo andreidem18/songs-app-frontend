@@ -13,6 +13,7 @@ import { getAlbumsThunk } from './store/slices/albums.slice'
 import { getArtistsThunk } from './store/slices/artists.slice'
 import { getGenresThunk } from './store/slices/genres.slice'
 import LoadingScreen from './components/LoadingScreen'
+import Educational from './components/Educational'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <HashRouter>
+      <Educational />
       <NavBar />
       <Notification />
       { isLoading && <LoadingScreen /> }

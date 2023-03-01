@@ -22,7 +22,7 @@ const Artists = () => {
     const dispatch = useDispatch();
 
     const selectArtist = (artist) => {
-        const artistFormated = {...artist, genres: artist.genres.map(genre => genre.id)}
+        const artistFormated = {...artist, genres: artist.genres?.map(genre => genre.id) || []}
         setArtistSelected(artistFormated);
         setShowArtistsForm(true);
     }
@@ -66,7 +66,7 @@ const Artists = () => {
                                     <Card.Title>{artist.name}</Card.Title>
                                     <div><b>Country: </b>{artist.country}</div>
                                     <div><b>Year: </b>{artist.formationYear}</div>
-                                    <div><b>Genres: </b>{artist.genres.map(genre => `${genre.name} `)}</div>
+                                    <div><b>Genres: </b>{artist.genres?.map(genre => `${genre.name} `)}</div>
                                     <div className="d-flex justify-content-end">
                                         <Button
                                             variant='danger'

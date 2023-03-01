@@ -22,13 +22,26 @@
     overflow-x: auto;
 }
 
-.items-select .form-card{
-    cursor: pointer;
-    width: 165px;
+.items-select .form-card-container{
+    position: relative;
+    margin-right: 20px;
 }
 
-.items-select .form-card.selected{
-    border: 3px solid #2a9fd6;
+.items-select .form-card-container .delete-button{
+    background: #ff0000;
+    width: 40px;
+    height: 40px;
+    border: none;
+    color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: -1px;
+    right: -3px;
+    z-index: 9;
+}
+
+.items-select .form-card{
+    width: 165px;
 }
 
 .items-select .form-card img{
@@ -80,4 +93,10 @@
 
 .genres-list .genres-item button{
     border: none;
+}
+
+.educational-purposes{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
 }

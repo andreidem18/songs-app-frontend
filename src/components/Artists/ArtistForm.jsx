@@ -14,18 +14,12 @@ const ArtistForm = ({ show, handleClose, artistSelected }) => {
     const { genres } = useSelector(state => state);
     const dispatch = useDispatch();
 
-    const notificationError = (message) => {
-        dispatch(showNotification({ variant: "danger", message }))
-    }
-
     useEffect(() => {
         if (artistSelected) setArtist(artistSelected);
         else setArtist(defaultArtist);
     }, [artistSelected]);
 
     const saveArtist = () => {
-        if(!artist.genres.length) 
-            return notificationError("You must select at least one genre");
         if(!artistSelected){
             dispatch(addArtistThunk(artist, artist.genres));
         } else {
@@ -76,6 +70,7 @@ const ArtistForm = ({ show, handleClose, artistSelected }) => {
                     <img src={artist.image} className="form-artist-img" alt="" />
                 </Col>
             </Row>
+            <b>Genres</b>
             <ItemsSelect 
                 items={genres}
                 setItemsSelected={e => editArtist("genres", e)}
